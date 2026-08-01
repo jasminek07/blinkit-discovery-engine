@@ -163,22 +163,65 @@ elif nav_selection == "AI chatbot 🧠":
             st.markdown(query)
         st.session_state.messages.append({"role": "user", "content": query})
         
-        # Local imports for RAG routing
-        from src.api.main import chat_endpoint, ChatRequest
+        # Local imports for isolated RAG routing (avoids loading hdbscan/umap/etc)
+        from src.vector_db.chroma_client import ChromaVectorStore
+        from src.llm_agent.synthesizer import InsightSynthesizer, CHAT_SYSTEM_PROMPT
+        from src.llm_agent.validator import validate_and_ground_quotes
         
         with st.spinner("Retrieving facts & querying Groq Llama..."):
             try:
-                # Format conversational history
-                formatted_history = []
-                for m in st.session_state.messages[:-1]:
-                    formatted_history.append({
-                        "role": "user" if m["role"] == "user" else "assistant",
-                        "content": m["content"]
-                    })
-                
-                result = chat_endpoint(ChatRequest(message=query, history=formatted_history))
-                reply = result.get("reply", "No response generated.")
-                quotes = result.get("supporting_quotes", [])
+                # Intercept greetings
+                clean_msg = query.strip().lower().rstrip("?./! ")
+                if clean_msg in {"hi", "hello", "hey", "hola", "greetings", "hi there", "hello there", "how are you"}:
+                    reply = "Hello"
+                    quotes = []
+                else:
+                    # Initialize Vector Store and retrieve context
+                    store = ChromaVectorStore(collection_name="blinkit_live_reviews")
+                    
+                    # Auto-populate collection from normalized reviews if empty
+                    if store.collection.count() == 0:
+                        normalized_path = Path("data/normalized_reviews.json")
+                        if normalized_path.exists():
+                            with open(normalized_path, "r", encoding="utf-8") as f:
+                                reviews_data = json.load(f)
+                            store.add_reviews(reviews_data[:200]) # load subset to avoid timeout
+                            
+                    results = store.query_reviews(query, limit=5)
+                    
+                    context_reviews = []
+                    original_reviews = []
+                    for r in results:
+                        context_reviews.append({
+                            "text": r["cleaned_text"],
+                            "platform": r["platform"],
+                            "timestamp": r["timestamp"]
+                        })
+                        original_reviews.append({
+                            "cleaned_text": r["cleaned_text"],
+                            "platform": r["platform"],
+                            "timestamp": r["timestamp"]
+                        })
+                        
+                    # Format history
+                    history_context = ""
+                    for m in st.session_state.messages[:-1]:
+                        role = m["role"]
+                        content = m["content"]
+                        history_context += f"{role.upper()}: {content}\n"
+                        
+                    user_prompt = {
+                        "user_query": query,
+                        "chat_history": history_context,
+                        "customer_feedback_context": context_reviews
+                    }
+                    
+                    synthesizer = InsightSynthesizer()
+                    raw_response = synthesizer.groq_client.complete_json(CHAT_SYSTEM_PROMPT, json.dumps(user_prompt))
+                    grounded_response = validate_and_ground_quotes(raw_response, original_reviews)
+                    
+                    reply = grounded_response.get("reply", "No response generated.")
+                    quotes = grounded_response.get("supporting_quotes", [])
                 
                 # Format reply with quotes
                 full_reply = reply
