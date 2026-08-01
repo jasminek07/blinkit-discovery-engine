@@ -258,9 +258,24 @@ Follow these steps to host your application for free on Streamlit Cloud:
     *   Select your Repository, Branch (`main` or `master`), and specify the Main file path as `app.py`.
 4.  **Configure API Secrets**:
     *   Under the **"Advanced Settings"** menu before deploying, locate the **"Secrets"** input box.
-    *   Add your Groq API key:
+    *   Paste the following TOML-formatted environment variables:
         ```toml
+        # Ingestion Source Keys
+        REDDIT_CLIENT_ID = "your_reddit_client_id"
+        REDDIT_CLIENT_SECRET = "your_reddit_client_secret"
+        REDDIT_USER_AGENT = "BlinkitDiscoveryEngine/1.0"
+
+        # Groq API / LLM Configuration
         GROQ_API_KEY = "your-actual-groq-api-key-here"
+        GROQ_MODEL_NAME = "llama-3.3-70b-versatile"
+
+        # Vector Database Settings
+        CHROMA_DB_PATH = "./data/chroma_db"
+
+        # API & Server Configuration
+        API_HOST = "0.0.0.0"
+        API_PORT = 8000
+        ENV = "development"
         ```
     *   Click **"Save"**.
 5.  **Launch**:
