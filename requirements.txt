@@ -14,4 +14,3 @@ google-play-scraper
 app-store-scraper
 praw
 langdetect
-spacy
