@@ -1,0 +1,225 @@
+AI-Powered User Discovery Engine — Problem Statement
+
+Problem Statement
+
+We are building an AI-Powered User Discovery Engine that automatically collects, analyzes, and synthesizes user feedback from multiple public sources to uncover behavioral patterns, unmet needs, recurring pain points, and opportunities for product improvement in Quick Commerce platforms.
+
+The primary focus is to understand why users repeatedly purchase from the same categories and what prevents them from exploring new ones.
+
+Rather than relying on manual surveys or reading hundreds of reviews, the system should leverage Large Language Models (LLMs), semantic search, clustering, and topic modeling to generate validated product insights at scale.
+
+The engine should transform thousands of unstructured conversations into actionable insights that product managers can use to identify opportunities, validate hypotheses, and prioritize product decisions.
+
+⸻
+
+Objective
+
+Enable Product Managers, UX Researchers, and Business teams to continuously understand user behavior by automatically answering questions such as:
+
+* Why do users repeatedly buy from the same product categories?
+* What prevents users from exploring new categories?
+* How do users currently discover products?
+* What role do shopping habits play in purchase decisions?
+* What information or reassurance do users need before trying a new category?
+* Which frustrations appear consistently across platforms?
+* Which user segments are naturally more exploratory?
+* What unmet user needs emerge repeatedly?
+* Which product opportunities appear consistently across different communities?
+
+The system should replace manual qualitative research with an automated, explainable discovery workflow.
+
+⸻
+
+Data Sources
+
+The discovery engine should ingest publicly available user-generated content from multiple channels, including:
+
+* Google Play Store Reviews
+* Apple App Store Reviews
+* Reddit Discussions
+* Community Forums
+* X (Twitter) / Social Media Discussions
+* Product Review Websites
+* Quick Commerce Discussions
+* Public Blog Comments (where available)
+
+The architecture should support adding additional data sources in the future without changing the downstream analysis pipeline.
+
+⸻
+
+What the System Does
+
+1. Multi-source Data Collection
+
+Collect recent discussions from configurable public sources.
+
+Each record should contain:
+
+* Source
+* Timestamp
+* Author (anonymized if necessary)
+* Platform
+* Raw Text
+* Metadata
+
+⸻
+
+2. Data Cleaning & Normalization
+
+Normalize conversations by:
+
+* Removing spam
+* Removing duplicates
+* Detecting language
+* Removing advertisements
+* Removing extremely short comments
+* Removing irrelevant discussions
+* Standardizing text
+
+The cleaned dataset becomes the canonical input for downstream analysis.
+
+⸻
+
+3. Semantic Understanding
+
+Use embeddings to convert every discussion into semantic vectors.
+
+Group similar conversations using clustering techniques (e.g., UMAP + HDBSCAN or BERTopic).
+
+Automatically identify recurring themes without predefined labels.
+
+Example themes:
+
+* Habit-driven shopping
+* Trust issues
+* Discovery friction
+* Price sensitivity
+* Category awareness
+* Recommendation quality
+* Search-first behavior
+* Convenience-driven purchases
+
+⸻
+
+4. Behavioral Insight Generation
+
+For every discovered theme, use an LLM to generate:
+
+* Theme name
+* Theme summary
+* Representative user quotes
+* Supporting evidence
+* User motivations
+* Pain points
+* Product opportunities
+* Confidence score
+
+Every generated quote must be validated against the original source to avoid hallucinations.
+
+⸻
+
+5. User Segmentation
+
+Automatically classify discussions into behavioral segments such as:
+
+* Mission-driven shoppers
+* Habitual repeat buyers
+* Exploratory shoppers
+* Price-sensitive users
+* Convenience-first users
+* Brand-loyal customers
+* Trust-conscious buyers
+
+The engine should identify which segments are more likely to explore new categories.
+
+⸻
+
+6. Opportunity Detection
+
+The system should identify recurring unmet needs such as:
+
+* Lack of awareness
+* Low trust in new categories
+* Poor recommendations
+* Search-heavy behavior
+* Weak personalization
+* Decision anxiety
+* Need for social proof
+* Cross-category discovery opportunities
+
+Each opportunity should include supporting evidence from multiple sources.
+
+⸻
+
+7. Insight Report Generation
+
+Generate a structured Product Discovery Report containing:
+
+Executive Summary
+
+Key findings from all sources
+
+Major Themes
+
+Top recurring behavioral themes
+
+User Pain Points
+
+Most common frustrations
+
+Behavioral Patterns
+
+Shopping habits and recurring behaviors
+
+User Segments
+
+Who behaves differently and why
+
+Product Opportunities
+
+Ranked improvement opportunities
+
+Supporting Quotes
+
+Validated representative user quotes
+
+Confidence Level
+
+Evidence supporting each insight
+
+⸻
+
+Key Research Questions
+
+The discovery engine should continuously answer:
+
+* Why do users repeatedly buy from the same categories?
+* What prevents users from trying new categories?
+* Which recommendations actually influence purchases?
+* How do habits affect shopping behavior?
+* What increases user trust?
+* Which discovery surfaces work best?
+* Which users are naturally exploratory?
+* What unmet needs consistently emerge?
+Quality Validation
+
+To ensure trustworthy insights, the system should:
+
+* Validate every user quote against original text.
+* Assign confidence scores to each insight based on source frequency and cross-platform consistency.
+* Highlight conflicting opinions instead of forcing consensus.
+* Remove duplicate discussions across platforms.
+* Track source attribution for every insight.
+* Maintain explainability by linking each theme back to representative user evidence.
+
+⸻
+
+Non-Goals
+
+The first version of the system will not:
+
+* Recommend product features automatically.
+* Analyze private customer data.
+* Perform real-time social listening.
+* Predict future user behavior.
+* Replace primary user research or usability testing.

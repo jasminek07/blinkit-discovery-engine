@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Blinkit AI | Executive Discovery Matrix</title>
+    
+    <!-- Tailwind CSS with custom configuration -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Custom styling fallback -->
+    <link rel="stylesheet" href="style.css?v=34">
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "primary": "#0CCF60", // Blinkit Green
+              "accent-yellow": "#F8CB46", // Blinkit Yellow
+              "dark-slate": "#1F2937",
+              "on-primary": "#ffffff",
+              "background": "#F7F9FB",
+              "surface": "#ffffff",
+              "border-subtle": "#E5E7EB",
+              "text-main": "#111827",
+              "text-muted": "#6B7280"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "2xl": "20px",
+              "3xl": "24px",
+              "full": "9999px"
+            },
+            "spacing": {
+              "gutter": "16px",
+              "stack-lg": "32px",
+              "margin-mobile": "16px",
+              "stack-md": "20px",
+              "stack-sm": "12px",
+              "margin-desktop": "32px",
+              "base": "4px"
+            },
+            "fontFamily": {
+              "headline-xl": ["Plus Jakarta Sans"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "body-md": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #F7F9FB; 
+            color: #111827; 
+            overflow: auto !important; 
+            height: auto !important; 
+        }
+        .glass-effect { backdrop-filter: blur(8px); background-color: rgba(255, 255, 255, 0.8); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .logo-blink { color: #111827; }
+        .logo-it { color: #0CCF60; }
+        
+        /* Maximise sizes for Category Switching Friction chart */
+        #cohort-chart-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px !important;
+        }
+        #cohort-chart-container .cohort-bar-label {
+            font-size: 15px !important;
+            font-weight: 800 !important;
+        }
+        #cohort-chart-container .cohort-bar-bg {
+            height: 24px !important;
+            border-radius: 12px !important;
+        }
+        #cohort-chart-container .cohort-bar-fill {
+            border-radius: 12px !important;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- High-Impact Yellow Ribbon -->
+    <div class="w-full bg-accent-yellow py-3 text-center sticky top-0 z-[60] shadow-md">
+        <p class="text-text-main font-extrabold text-sm tracking-tight uppercase">Blinkit RAG Discovery Engine</p>
+    </div>
+
+    <!-- SideNavBar -->
+    <aside class="fixed left-0 top-0 h-full flex flex-col p-6 z-40 bg-white border-r border-border-subtle w-64 pt-16">
+        <div class="mb-12 px-2 flex items-center gap-3">
+            <svg class="w-10 h-10 rounded-xl shadow-lg shadow-amber-400/25" viewBox="0 0 3500 3500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="3500" height="3500" rx="740" fill="#F8CB46"/>
+                <g transform="translate(1138, 0)">
+                    <path d="M666.964 1551C715.913 1551 759.616 1563.24 798.076 1587.71C836.884 1611.83 867.302 1646.09 889.329 1690.48C910.656 1733.13 921.32 1783.3 921.32 1840.98C921.32 1896.91 910.656 1946.9 889.329 1990.95C868.001 2034.99 837.933 2069.43 799.124 2094.25C759.966 2119.42 715.913 2132 666.964 2132C631.302 2132 597.738 2124.66 566.271 2109.98C534.804 2095.29 507.883 2074.67 485.507 2048.1V2118.67H303L303 1368H485.507V1634.38C507.883 1607.81 534.804 1587.36 566.271 1573.03C597.738 1558.34 631.302 1551 666.964 1551ZM612.422 1980.46C638.295 1980.46 661.37 1974.52 681.649 1962.63C701.927 1950.74 717.836 1934.14 729.373 1912.82C740.911 1891.84 746.68 1867.89 746.68 1840.98C746.68 1814.76 740.911 1790.99 729.373 1769.66C717.836 1748.34 701.927 1731.73 681.649 1719.85C661.37 1707.96 638.295 1702.02 612.422 1702.02C587.948 1702.02 566.096 1707.96 546.867 1719.85C527.637 1731.39 512.603 1747.64 501.764 1768.61C490.926 1789.94 485.507 1814.06 485.507 1840.98C485.507 1867.89 490.926 1892.02 501.764 1913.34C512.603 1934.31 527.637 1950.74 546.867 1962.63C566.096 1974.52 587.948 1980.46 612.422 1980.46Z" fill="#1C1C1C"/>
+                </g>
+            </svg>
+            <div>
+                <h1 class="font-extrabold text-xl leading-none flex tracking-tighter items-center">
+                    <span class="logo-blink lowercase font-black text-2xl">blink</span><span class="logo-it lowercase font-black text-2xl">it</span>
+                    <span class="ml-1.5 text-[9px] bg-primary text-white px-1.5 py-0.5 rounded-md font-black">AI</span>
+                </h1>
+                <p class="text-[9px] text-text-muted font-black tracking-widest uppercase mt-1">Executive Hub</p>
+            </div>
+        </div>
+        <nav class="flex-1 space-y-2">
+            <button id="tab-matrix-btn" class="flex items-center gap-3 w-full bg-[#F8CB46] text-text-main rounded-2xl px-4 py-3.5 font-bold transition-all shadow-md shadow-accent-yellow/10">
+                <span class="material-symbols-outlined text-text-main" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                <span class="text-sm font-bold">Executive Matrix 📊</span>
+            </button>
+            <button id="tab-segments-btn" class="flex items-center gap-3 w-full text-text-muted px-4 py-3.5 hover:bg-accent-yellow/10 rounded-2xl transition-all hover:text-text-main text-left">
+                <span class="material-symbols-outlined">analytics</span>
+                <span class="text-sm font-bold">Friction Analysis 📉</span>
+            </button>
+            <button id="tab-questions-btn" class="flex items-center gap-3 w-full text-text-muted px-4 py-3.5 hover:bg-accent-yellow/10 rounded-2xl transition-all hover:text-text-main text-left">
+                <span class="material-symbols-outlined">quiz</span>
+                <span class="text-sm font-bold">Behavioral Questions Matrix 📋</span>
+            </button>
+            <button id="tab-chat-btn" class="flex items-center gap-3 w-full text-text-muted px-4 py-3.5 hover:bg-accent-yellow/10 rounded-2xl transition-all hover:text-text-main text-left">
+                <span class="material-symbols-outlined">psychology</span>
+                <span class="text-sm font-bold">AI chatbot 🧠</span>
+            </button>
+        </nav>
+        <div class="mt-auto space-y-4">
+            <div class="pt-4 border-t border-border-subtle space-y-1">
+                <a class="flex items-center gap-3 text-text-muted px-4 py-2 hover:text-accent-yellow transition-colors" href="#">
+                    <span class="material-symbols-outlined text-xl">settings</span>
+                    <span class="text-xs font-bold uppercase tracking-wider">Settings</span>
+                </a>
+                <a class="flex items-center gap-3 text-text-muted px-4 py-2 hover:text-accent-yellow transition-colors" href="#">
+                    <span class="material-symbols-outlined text-xl">contact_support</span>
+                    <span class="text-xs font-bold uppercase tracking-wider">Support</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="ml-64 min-h-screen">
+        <!-- TopNavBar styled like Blinkit Header -->
+        <header class="flex justify-between items-center px-margin-desktop w-full h-24 sticky top-12 z-50 bg-[#F8CB46] border-b border-accent-yellow/20 shadow-sm">
+            <div class="flex items-center gap-2 pr-6">
+                <h1 class="font-extrabold text-2xl tracking-tighter flex items-center leading-none">
+                    <span class="logo-blink lowercase font-black text-3xl">blink</span><span class="logo-it lowercase font-black text-3xl">it</span>
+                    <span class="ml-2 font-black text-[15px] text-text-main uppercase tracking-tight">RAG discovery engine ⚡🤖</span>
+                </h1>
+            </div>
+
+            
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors">
+                        <span class="material-symbols-outlined text-text-main">notifications</span>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors">
+                        <span class="material-symbols-outlined text-text-main">help</span>
+                    </button>
+                </div>
+                <div class="h-8 w-[1px] bg-text-main/10"></div>
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-extrabold text-text-main">Executive User</p>
+                        <p class="text-[10px] text-text-main/75 font-bold uppercase tracking-tighter">Senior Analyst</p>
+                    </div>
+                    <div class="relative">
+                        <img alt="Profile" class="w-10 h-10 rounded-full ring-2 ring-white/50 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdEjciGcR-aBQ8MnzcRiIxDefdBCGFTXQf_I_Jj1wVmdFakHOFDEUXvwLmABEaFuiHwiP6aFL2HivLoLCVeRuABZvTFKe-S2EIN58A4Xd-OVGONRxVm_riv-l7j125Up4OaY6LwqTvkVigx0USLfNTvEeOiJR0j-o1t0KbNcPYbZYNPLJgDS0ECrDpgdnA8ZMleMyfsf9pJS_D4zFaj2ULzwCuY82rtULHm-KfrVSmSVKQ56P7H6EDsA"/>
+                        <div class="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-white rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Body -->
+        <div class="p-margin-desktop space-y-stack-lg">
+            
+            <!-- Tab 1: Executive Discovery Matrix -->
+            <div id="tab-matrix-panel" class="tab-content-panel space-y-8">
+                <!-- Hero Insight Section -->
+                <section class="relative bg-white p-10 rounded-3xl border border-border-subtle overflow-hidden shadow-sm group">
+                    <div class="relative z-10 max-w-2xl space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-yellow/15 text-text-main border border-accent-yellow/20 rounded-full">
+                            <span class="material-symbols-outlined text-sm text-accent-yellow" style="font-variation-settings: 'FILL' 1;">stars</span>
+                            <span class="text-[10px] font-black tracking-widest uppercase">Strategic Spotlight</span>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-text-main tracking-tight leading-tight">The "Freshness First" Loop 🔄✨</h2>
+                        <p class="text-lg font-medium text-text-muted leading-relaxed">Our latest analysis reveals a powerful behavioral cycle: high-frequency dairy purchases are driving a <span class="text-primary font-extrabold">24% increase 📈🚀</span> in weekly sessions. However, cross-category conversion into electronics remains flat due to trust barriers. 🛡️</p>
+                    </div>
+                    <!-- Background Decorative Element -->
+                    <div class="absolute -right-16 -top-16 w-[400px] h-[400px] bg-accent-yellow/5 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-1000"></div>
+                </section>
+
+                <!-- KPI Metrics Grid -->
+                <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-3xl border border-border-subtle shadow-sm hover:border-accent-yellow transition-all group">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-2.5 bg-accent-yellow/10 rounded-xl text-accent-yellow">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+                            </div>
+                        </div>
+                        <p class="text-text-muted font-bold text-xs uppercase tracking-wider">Core Grocery Reorders 🛒📦</p>
+                        <h3 id="kpi-reorders" class="text-3xl font-extrabold text-text-main mt-1">80%</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-border-subtle shadow-sm hover:border-accent-yellow transition-all group">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-2.5 bg-accent-yellow/10 rounded-xl text-accent-yellow">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+                            </div>
+                        </div>
+                        <p class="text-text-muted font-bold text-xs uppercase tracking-wider">Category Trial 🛒✨</p>
+                        <h3 id="kpi-adoption" class="text-3xl font-extrabold text-text-main mt-1">6.8%</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-border-subtle shadow-sm hover:border-accent-yellow transition-all group">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-2.5 bg-accent-yellow/10 rounded-xl text-accent-yellow">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                            </div>
+                        </div>
+                        <p class="text-text-muted font-bold text-xs uppercase tracking-wider">Top Switching Barrier 🛡️✅</p>
+                        <h3 id="kpi-barrier" class="text-lg font-extrabold text-text-main mt-2 leading-tight">Cosmetics, Electronics</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-border-subtle shadow-sm hover:border-accent-yellow transition-all group">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-2.5 bg-accent-yellow/10 rounded-xl text-accent-yellow">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+                            </div>
+                            <span class="bg-primary text-white px-2 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest">Live</span>
+                        </div>
+                        <p class="text-text-muted font-bold text-xs uppercase tracking-wider">Normalised Reviews 📝✅</p>
+                        <h3 id="kpi-reviews" class="text-3xl font-extrabold text-text-main mt-1">1,490</h3>
+                    </div>
+                </section>
+
+                <!-- Behavioral Insights Section -->
+                <section class="space-y-stack-md">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-extrabold text-text-main tracking-tight">Behavioral Insights</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white p-8 rounded-3xl border border-border-subtle hover:border-accent-yellow/40 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all cursor-pointer relative group overflow-hidden">
+                            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">🥛</div>
+                            <h4 class="text-xl font-extrabold text-text-main mb-3">Dairy Dominance</h4>
+                            <p class="text-sm font-medium text-text-muted leading-relaxed">Milk and dairy remain the highest frequency anchors, typically purchased repeatedly on morning loops.</p>
+                            <div class="mt-6 pt-6 border-t border-border-subtle flex justify-between items-center">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-primary">High Impact</span>
+                                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-accent-yellow/5 p-8 rounded-3xl border border-accent-yellow/10 hover:shadow-xl hover:shadow-accent-yellow/10 transition-all cursor-pointer relative group">
+                            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">💄</div>
+                            <h4 class="text-xl font-extrabold text-text-main mb-3">Beauty Trust Barrier</h4>
+                            <p class="text-sm font-medium text-text-muted leading-relaxed">Customers hesitate on non-grocery items like cosmetics or electronics without rating star reviews.</p>
+                            <div class="mt-6 pt-6 border-t border-accent-yellow/20 flex justify-between items-center">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-accent-yellow">Investigation Needed</span>
+                                <span class="material-symbols-outlined text-text-muted">query_stats</span>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white p-8 rounded-3xl border border-border-subtle hover:border-accent-yellow/40 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all cursor-pointer relative group overflow-hidden">
+                            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">⚡</div>
+                            <h4 class="text-xl font-extrabold text-text-main mb-3">Morning Rush Dynamics</h4>
+                            <p class="text-sm font-medium text-text-muted leading-relaxed">Quick-commerce adoption is peaking during weekday mornings with shifts towards "Breakfast Kits".</p>
+                            <div class="mt-6 pt-6 border-t border-border-subtle flex justify-between items-center">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-accent-yellow">Emerging Trend</span>
+                                <span class="material-symbols-outlined text-accent-yellow" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="bg-accent-yellow/5 p-8 rounded-3xl border border-accent-yellow/10 hover:shadow-xl hover:shadow-accent-yellow/10 transition-all cursor-pointer relative group">
+                            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">🍎</div>
+                            <h4 class="text-xl font-extrabold text-text-main mb-3">Fresh Fruits Quality</h4>
+                            <p class="text-sm font-medium text-text-muted leading-relaxed">Bruised produce and quality concerns remain the top complaints blocking exploratory checkout habits.</p>
+                            <div class="mt-6 pt-6 border-t border-accent-yellow/20 flex justify-between items-center">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-text-muted">Inventory Alert</span>
+                                <span class="material-symbols-outlined text-text-muted">inventory_2</span>
+                            </div>
+                        </div>
+                        <!-- Card 5 -->
+                        <div class="bg-white p-8 rounded-3xl border border-border-subtle hover:border-accent-yellow/40 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all cursor-pointer relative group overflow-hidden">
+                            <div class="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">📦</div>
+                            <h4 class="text-xl font-extrabold text-text-main mb-3">Post-Pay Address Edits</h4>
+                            <p class="text-sm font-medium text-text-muted leading-relaxed">Unable to modify incorrect address pins immediately after payment checkout drives customer support stress.</p>
+                            <div class="mt-6 pt-6 border-t border-border-subtle flex justify-between items-center">
+                                <span class="text-[10px] font-black uppercase tracking-widest text-primary">Optimized</span>
+                                <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Tab 2: Friction Analysis -->
+            <div id="tab-segments-panel" class="tab-content-panel hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Left: Switching Friction -->
+                    <section class="bg-white p-8 rounded-3xl border border-border-subtle shadow-sm">
+                        <h2 class="text-2xl font-extrabold text-text-main tracking-tight mb-2">📊 Category Switching Friction Breakdown</h2>
+                        <p class="text-text-muted text-sm mb-6">Quantifying barriers to cross-category adoption</p>
+                        
+                        <div class="border border-border-subtle rounded-2xl p-6 bg-background h-[460px] flex flex-col justify-center">
+                            <h4 class="text-sm font-bold text-text-main mb-4 uppercase tracking-wider">Customer Friction Distribution (%)</h4>
+                            <div id="cohort-chart-container" class="space-y-4">
+                                <!-- Dynamic friction bars injected here -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Right: Most Ordered Categories -->
+                    <section class="bg-white p-8 rounded-3xl border border-border-subtle shadow-sm">
+                        <h2 class="text-2xl font-extrabold text-text-main tracking-tight mb-2">🛒 Most Ordered / Explored Categories</h2>
+                        <p class="text-text-muted text-sm mb-6">Ranked by volume and customer exploration share</p>
+                        <div id="ranked-opportunities-list" class="space-y-3 h-[460px] overflow-y-auto pr-2 no-scrollbar">
+                            <!-- Category cards injected here -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Panel 3: Preset Questions -->
+            <div id="tab-questions-panel" class="tab-content-panel hidden">
+                <div class="space-y-6">
+                    <section class="bg-white p-8 rounded-3xl border border-accent-yellow/20 shadow-sm">
+                        <h2 class="text-2xl font-extrabold text-text-main tracking-tight">💡 Behavioral Questions Matrix</h2>
+                        <p class="text-text-muted text-sm mt-1">Synthesized answers and customer verbatim evidence for the 8 core discovery questions</p>
+                    </section>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        
+                        <!-- Question 1 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">1. Why do users repeatedly buy from the same categories?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">81.4% Reorders</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> High fulfillment speed (under 10 mins), established daily routine habit loops, and predictable quality of daily staples drive effortless reordering.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Blinkit is my absolute go-to for daily grocery top-ups! Fresh Amul milk and bread delivered in under 10 minutes every single morning."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Order veggies and dairy almost 4 times a week. Zero friction, delivered before I finish brewing chai."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Reddit r/delhi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">2. What prevents users from exploring new categories?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">42.8% Quality Anxiety</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> Customers express strong quality doubts regarding fresh products and high-value non-grocery items like cosmetics or electronics, due to the total absence of star ratings, reviews, and clear authenticity certificates.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "I hesitate to order premium face creams or earphone accessories from Blinkit because there are no customer ratings or reviews. How do I know if they are genuine?"
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— App Store Review</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Got stale, sour milk and spoiled fruits once. Swapping to offline or bigbasket for high-ticket items since refund support takes forever."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">3. How do users discover products today?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">68.5% Search-First</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> Product discovery is heavily search-driven (auto-complete suggestions, direct brand lookup), whereas banner promotions are viewed as low-intent visual noise.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "I just search for the exact bread or chip brand I want. The banners on the homepage are mostly ads I ignore."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Searching is fast, but if the brand isn't there, the alternative recommendations are completely irrelevant."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Reddit post</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">4. What role do habits play in shopping behavior?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">Daily Peaks</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> Daily breakfast slot routines (7 AM to 10 AM) create a locked-in habit loop where users buy milk, curd, and bread on autopilot.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Every single day starts with a Blinkit order of milk. It has literally become my alarm clock."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Routine is fixed for eggs and bread. If a slot is full, it ruins my breakfast prep."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Reddit post</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">5. What information do users need before trying a new category?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">Trust Signals</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> Users request visible customer star ratings, authentic review text, expiration date details, and replacement policy clarity before buying cosmetics, medicine, or electronics.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Why is there no rating system for expensive face moisturizers? I'm not buying without reading other reviews."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— App Store Review</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "For items like electronics or cosmetics, they should show the expiration date and user reviews directly."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 6 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">6. What frustrations emerge repeatedly?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">Critical Friction</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> Product spoilage (sour milk, rotten vegetables), missing items in packed bags, and automated AI chat support failing to refund.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Customer support is just a bot that repeats generic replies when my packet of curd is completely leaked."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "They missed delivering two items from my order but charged me anyway. The bot chat refused my refund."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 7 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">7. Which user segments are more likely to experiment?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">Experimenters</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> Exploratory shoppers and price-sensitive users looking for discounts on trial brands show high propensity, whereas convenience-first users show low propensity.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "I love checking the 'New Arrivals' tab for new chips or snack brands when they offer discount coupons."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Reddit post</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Willing to try personal care brands only if there's a free trial item or high discounts included."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 8 -->
+                        <div class="bg-white p-8 rounded-3xl border border-accent-yellow/20 hover:border-accent-yellow/60 hover:shadow-xl hover:shadow-accent-yellow/5 transition-all group relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <h4 class="text-lg font-extrabold text-text-main pr-4">8. What unmet needs emerge consistently across discussions?</h4>
+                                    <span class="bg-[#F8CB46] text-text-main text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-lg shrink-0">Feature Requests</span>
+                                </div>
+                                <div class="border-l-4 border-[#F8CB46] bg-accent-yellow/5 pl-4 py-2.5 pr-2 rounded-r-2xl text-sm font-semibold text-text-main/80 leading-relaxed mb-6">
+                                    <strong>One-liner Answer:</strong> The most requested unmet needs are a post-purchase address modification window, an instant order cancellation grace period, and consolidated checkout options for forgotten add-ons.
+                                </div>
+                            </div>
+                            <div class="space-y-3 pt-4 border-t border-border-subtle">
+                                <p class="text-xs font-bold text-text-muted uppercase tracking-wider">Verbatim Citations:</p>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Wish there was a cancel button that worked for 1 minute so I could fix items. Now, if I forget something, I pay a double delivery fee."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— Play Store Review</span>
+                                </div>
+                                <div class="bg-accent-yellow/5 border border-accent-yellow/10 p-4 rounded-2xl text-xs italic text-text-main leading-relaxed relative">
+                                    "Let us correct the delivery address or map pin for up to 30 seconds after payment completes."
+                                    <span class="block text-[10px] text-text-muted mt-2 font-bold not-italic">— App Store Review</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: AI Insights (Grounded Chatbot) -->
+            <div id="tab-chat-panel" class="tab-content-panel hidden">
+                <div class="bg-white rounded-3xl border border-border-subtle shadow-sm overflow-hidden flex flex-col min-h-[580px]">
+                    <div class="bg-accent-yellow/10 border-b border-accent-yellow/20 px-8 py-5 flex justify-between items-center">
+                        <div>
+                            <h2 class="text-xl font-extrabold text-text-main">💬 Ask Blinkit AI - Grounded RAG</h2>
+                            <p class="text-xs text-text-muted font-bold uppercase tracking-wider mt-0.5">Vector DB Grounded Agent</p>
+                        </div>
+                        <button id="clear-chat-btn" class="bg-background text-text-muted border border-border-subtle px-4 py-2 rounded-2xl font-extrabold hover:text-text-main hover:border-accent-yellow transition-all flex items-center gap-1.5 text-xs">
+                            <span class="material-symbols-outlined text-sm">mop</span>🧹 Clear Chat
+                        </button>
+                    </div>
+
+                    <!-- Chat Feed -->
+                    <div id="chat-messages-container" class="flex-grow p-8 overflow-y-auto space-y-6 max-h-[380px] bg-background">
+                        <div class="chat-msg system-msg">
+                            <div class="bg-white border border-border-subtle rounded-2xl p-5 shadow-sm max-w-2xl leading-relaxed text-sm">
+                                <strong class="text-text-main">Welcome to the Blinkit User Category RAG Chatbot!</strong><br><br>
+                                Ask me any questions about customer routines, category habits, checkout barriers, or segment patterns. I will fetch reviews from ChromaDB, query Groq Llama, and display validated customer quotes verbatim below the reply.<br><br>
+                                <em class="text-primary font-semibold">Note: Preset behavioral discovery questions and synthesized citations are located on the "Executive Discovery Matrix" tab.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Suggested Questions -->
+                    <div class="bg-white border-t border-border-subtle px-8 py-4 flex items-center gap-2 flex-wrap">
+                        <span class="text-xs font-bold text-text-muted uppercase tracking-widest mr-2">💡 Suggestions:</span>
+                        <button class="btn-chat-suggestion bg-background border border-border-subtle px-3 py-1.5 rounded-full text-xs font-semibold text-text-muted hover:bg-accent-yellow hover:text-text-main hover:border-accent-yellow transition-all" data-query="Why do users hesitate to order cosmetics on Blinkit?">Why hesitate ordering cosmetics?</button>
+                        <button class="btn-chat-suggestion bg-background border border-border-subtle px-3 py-1.5 rounded-full text-xs font-semibold text-text-muted hover:bg-accent-yellow hover:text-text-main hover:border-accent-yellow transition-all" data-query="What is the impact of payment timeouts on order checkouts?">Impact of payment timeouts</button>
+                        <button class="btn-chat-suggestion bg-background border border-border-subtle px-3 py-1.5 rounded-full text-xs font-semibold text-text-muted hover:bg-accent-yellow hover:text-text-main hover:border-accent-yellow transition-all" data-query="How does morning delivery speed affect reorders?">Delivery speed and reorders</button>
+                        <button class="btn-chat-suggestion bg-background border border-border-subtle px-3 py-1.5 rounded-full text-xs font-semibold text-text-muted hover:bg-accent-yellow hover:text-text-main hover:border-accent-yellow transition-all" data-query="Why do customers complain about refund chatbot support?">Chatbot refund complaints</button>
+                    </div>
+
+                    <!-- Input Bar -->
+                    <div class="bg-white border-t border-border-subtle p-6 flex gap-4 items-end">
+                        <textarea id="chat-input" class="flex-1 border border-border-subtle rounded-2xl p-4 text-sm font-medium focus:ring-2 focus:ring-accent-yellow focus:border-accent-yellow bg-background resize-none h-14" placeholder="Type or click a suggested question to query the RAG engine..."></textarea>
+                        <button id="chat-send-btn" class="bg-[#F8CB46] text-text-main h-14 px-8 rounded-2xl font-extrabold flex items-center gap-2 hover:brightness-105 transition-all shadow-lg shadow-accent-yellow/20">
+                            ✉️ Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Micro-interaction Script -->
+    <script>
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.97)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = '';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+            });
+        });
+
+        // Simple search focus effect
+        const searchInput = document.querySelector('input[placeholder="Search executive insights..."]');
+        if (searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-accent-yellow/20');
+                searchInput.classList.add('bg-white');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-accent-yellow/20');
+                searchInput.classList.remove('bg-white');
+            });
+        }
+    </script>
+
+    <!-- Core logic script -->
+    <script src="script.js?v=34"></script>
+</body>
+</html>

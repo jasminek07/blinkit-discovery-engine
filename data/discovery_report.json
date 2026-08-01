@@ -1,0 +1,943 @@
+{
+  "executive_summary": {
+    "total_processed": 1490,
+    "total_themes": 17,
+    "noise_count": 406
+  },
+  "themes": [
+    {
+      "theme_id": "13",
+      "theme_name": "Forgotten Item Add-ons checkout Flow",
+      "summary": "Users request a seamless way to add missing items to an already active order without paying additional delivery fees.",
+      "confidence_score": 0.35,
+      "size": 18,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.79,
+      "opportunity_score": 0.01,
+      "motivations": [
+        "Combine forgotten purchases into one delivery",
+        "Save checkout time"
+      ],
+      "pain_points": [
+        "Forced to create secondary order with separate delivery fee",
+        "No order consolidation feature"
+      ],
+      "opportunities": [
+        "Introduce 'Add to active order' checkout option within 3 minutes",
+        "Consolidate dispatch slips in warehouse"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "sometimes the package foods i received are damp and unusable",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T04:11:37"
+        }
+      ]
+    },
+    {
+      "theme_id": "2",
+      "theme_name": "Cosmetics, Electronics & Non-Grocery Trust",
+      "summary": "Users express anxiety and reluctance when trying to purchase high-value non-grocery categories (like cosmetics or electronics) due to a complete absence of visible user ratings, star systems, and product reviews.",
+      "confidence_score": 0.68,
+      "size": 131,
+      "dominant_segment": "price_sensitive",
+      "pain_severity": 0.6,
+      "opportunity_score": 0.052,
+      "motivations": [
+        "Desire for high-margin delivery convenience",
+        "Discounts and promotional benefits"
+      ],
+      "pain_points": [
+        "Lack of customer rating stars and social proof on products",
+        "Fear of receiving duplicate or counterfeit cosmetics"
+      ],
+      "opportunities": [
+        "Add visible customer product rating stars and reviews",
+        "Display certified authenticity guarantees on premium beauty brands"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "reduce hideen charge.. overall good services",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T03:59:31"
+        }
+      ]
+    },
+    {
+      "theme_id": "3",
+      "theme_name": "Refund Disputes & Automated Support Failures",
+      "summary": "Users express deep frustration with automated AI chatbots failing to resolve transaction failures, chargebacks, and refund claims for missing or spoilt items.",
+      "confidence_score": 0.68,
+      "size": 143,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.1,
+      "opportunity_score": 0.01,
+      "motivations": [
+        "Fair resolution of order errors",
+        "Prompt refunds for missing items"
+      ],
+      "pain_points": [
+        "Unhelpful automated chatbot loop",
+        "Leaked payment debits with no live agent escalation option"
+      ],
+      "opportunities": [
+        "Implement single-tap live chat agent transition",
+        "Create in-app refund tracker timeline"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "nice experience with blinkit.very useful in all the way",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T03:58:15"
+        }
+      ]
+    },
+    {
+      "theme_id": "0",
+      "theme_name": "Daily Grocery, Milk & Breakfast Staples",
+      "summary": "Users repeatedly buy fresh dairy, milk, bread, and breakfast essentials due to the unmatched convenience of 10-minute deliveries.",
+      "confidence_score": 0.68,
+      "size": 124,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.57,
+      "opportunity_score": 0.047,
+      "motivations": [
+        "Immediate daily cooking utility",
+        "Freshness guarantees",
+        "10-minute delivery convenience"
+      ],
+      "pain_points": [
+        "Occasional sour milk deliveries",
+        "Out-of-stock items for regular morning slots"
+      ],
+      "opportunities": [
+        "Introduce subscription pass or auto-reorder for morning slots",
+        "Freshness-sealed packaging assurances"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "bht vuk lagisile emn rati khon je dibo ahibo dhoinobad",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T03:22:30"
+        }
+      ]
+    },
+    {
+      "theme_id": "6",
+      "theme_name": "Delivery Agent Navigation & Tipping Friction",
+      "summary": "Users report harassment from delivery partners regarding tips, phone calls for basic navigation directions, and app-location mismatches.",
+      "confidence_score": 0.68,
+      "size": 152,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.1,
+      "opportunity_score": 0.01,
+      "motivations": [
+        "Quiet and professional contactless delivery",
+        "Accurate door delivery"
+      ],
+      "pain_points": [
+        "Aggressive tipping requests",
+        "Repetitive location call prompts"
+      ],
+      "opportunities": [
+        "Improve delivery route map suggestions",
+        "Provide anonymous delivery ratings and tipping controls"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "Had the best experience ever. I was too happy by their service. really kaabil e tareef",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T02:32:16"
+        }
+      ]
+    },
+    {
+      "theme_id": "16",
+      "theme_name": "Pet Supplies & Premium Animal Care Catalog",
+      "summary": "Users purchase premium dog and cat food, noting frequent out-of-stock states for specialized dietary brands.",
+      "confidence_score": 0.47,
+      "size": 47,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.93,
+      "opportunity_score": 0.029,
+      "motivations": [
+        "Access to regular pet food brands",
+        "Emergency pet care supply delivery"
+      ],
+      "pain_points": [
+        "Frequent stockouts of premium brands",
+        "Inability to set up recurring monthly deliveries"
+      ],
+      "opportunities": [
+        "Add 'Notify when in stock' catalog flags",
+        "Introduce recurring monthly subscription orders for pet food"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "worst aap ever that I have used..they literally took my money and cancelled my order and haven't given me my money back and also deleted my order history of that cancelled order",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T01:22:19"
+        }
+      ]
+    },
+    {
+      "theme_id": "1",
+      "theme_name": "Medicine Delivery & Healthcare Access",
+      "summary": "Users highly appreciate category expansion into healthcare, particularly for free consultations and rapid access to prescription medicines.",
+      "confidence_score": 0.44,
+      "size": 41,
+      "dominant_segment": "convenience_first",
+      "pain_severity": 0.75,
+      "opportunity_score": 0.021,
+      "motivations": [
+        "Emergency healthcare access",
+        "Convenience of doctor consults in app"
+      ],
+      "pain_points": [
+        "Lack of direct support during transaction failures for sub-orders"
+      ],
+      "opportunities": [
+        "Prominently display certified doctor consultation features",
+        "Optimize invoice tracking for claims"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "thanx ur deliveryy too fast",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T00:56:49"
+        }
+      ]
+    },
+    {
+      "theme_id": "4",
+      "theme_name": "Post-Purchase Delivery Address Changes",
+      "summary": "Users encounter massive friction when trying to modify or fix incorrect delivery pins or addresses immediately after order checkout.",
+      "confidence_score": 0.68,
+      "size": 136,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.1,
+      "opportunity_score": 0.009,
+      "motivations": [
+        "Accurate order delivery location",
+        "Fast correction of typing errors"
+      ],
+      "pain_points": [
+        "GPS pin shifting on save",
+        "No cancel or edit button once checkout completes"
+      ],
+      "opportunities": [
+        "Add 30-second address correction window post-checkout",
+        "Improve map pin picker precision"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "very good app less charges very good",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T00:36:00"
+        }
+      ]
+    },
+    {
+      "theme_id": "11",
+      "theme_name": "Missing Items & Packing Mismatches",
+      "summary": "Users frequently receive incomplete packages where items billed are missing from the physical shopping bag delivered.",
+      "confidence_score": 0.35,
+      "size": 18,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.47,
+      "opportunity_score": 0.006,
+      "motivations": [
+        "Receive exact items ordered",
+        "Secure and sealed packaging"
+      ],
+      "pain_points": [
+        "Missing high-value items in large bags",
+        "Wrong item variants swapped without consent"
+      ],
+      "opportunities": [
+        "Add weight-verification scanners at packing stations",
+        "Generate item packing checklist slip for bag seals"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "demge product only i have theme",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T00:21:36"
+        }
+      ]
+    },
+    {
+      "theme_id": "7",
+      "theme_name": "Checkout Failures & Payment Gateway Timeouts",
+      "summary": "Users experience transaction timeouts and double-debits on UPI and net banking payments during high-demand peak slots.",
+      "confidence_score": 0.35,
+      "size": 17,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.1,
+      "opportunity_score": 0.001,
+      "motivations": [
+        "Fast payment completion",
+        "Secure checkout confidence"
+      ],
+      "pain_points": [
+        "UPI time-out issues",
+        "Double debits on failed transactions"
+      ],
+      "opportunities": [
+        "Cache transaction states for retry fallback",
+        "Introduce offline post-pay or wallet integration"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "best app for groceries and others",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-30T00:19:07"
+        }
+      ]
+    },
+    {
+      "theme_id": "15",
+      "theme_name": "Theme 15",
+      "summary": "",
+      "confidence_score": 0.38,
+      "size": 24,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.99,
+      "opportunity_score": 0.016,
+      "motivations": [],
+      "pain_points": [],
+      "opportunities": [],
+      "supporting_quotes": [
+        {
+          "text": "Worst support , they will just check issue at high level and say Customer is at mistake and not them or their agents. It was very easy for them to say the customer is wrong but not think twice before checking their side. Their support is very limited and all ai which irritates more.",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-29T10:03:22"
+        }
+      ]
+    },
+    {
+      "theme_id": "8",
+      "theme_name": "Instant Order Cancellation Grace Period",
+      "summary": "Users seek a brief grace period to cancel accidentally placed orders or wrong item quantities immediately after payment.",
+      "confidence_score": 0.55,
+      "size": 68,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.1,
+      "opportunity_score": 0.005,
+      "motivations": [
+        "Correcting mistyped checkout slips",
+        "Canceling duplicate order submissions"
+      ],
+      "pain_points": [
+        "No order cancellation possibility",
+        "Immediate lock-in by the warehouse dispatching system"
+      ],
+      "opportunities": [
+        "Introduce a 60-second absolute cancellation window",
+        "Show active item validation prompts before payment"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "nice to get the thing within 10 min it's the perfect app",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-29T23:10:38"
+        }
+      ]
+    },
+    {
+      "theme_id": "12",
+      "theme_name": "Search Precision & Catalog Mismatches",
+      "summary": "Users face difficulty discovering target brands due to inaccurate product matching and irrelevant catalog suggestions.",
+      "confidence_score": 0.58,
+      "size": 75,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.96,
+      "opportunity_score": 0.048,
+      "motivations": [
+        "Find exact product brands quickly",
+        "Accurate inventory visibility"
+      ],
+      "pain_points": [
+        "Irrelevant search suggestions",
+        "Staples keyword mismatches"
+      ],
+      "opportunities": [
+        "Optimize autocomplete search indexing",
+        "Add synonym matching for local grocery terms"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "worst experience. recently I purchased tata 1mg clinically validated digital blood pressure monitor but I received used item. I paid new machine but I received used machine and no exchange option in blinkit.",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-29T21:40:29"
+        }
+      ]
+    },
+    {
+      "theme_id": "10",
+      "theme_name": "Subscription Pass and Membership Validity",
+      "summary": "Users voice complaints about glitches in premium passes, free delivery code activations, and promo eligibility checks.",
+      "confidence_score": 0.34,
+      "size": 16,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.84,
+      "opportunity_score": 0.009,
+      "motivations": [
+        "Cost-efficiency savings",
+        "Premium priority support"
+      ],
+      "pain_points": [
+        "Free delivery coupon failing to apply",
+        "Hidden minimum order constraints"
+      ],
+      "opportunities": [
+        "Add prominent pass eligibility flags in checkout summaries",
+        "Enable instant membership cancellation refunds"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "If an item was ordered by mistake, there is nothing wrong with asking for it to be changed. However, you are refusing to make the change and showing a very poor attitude toward your customers. Amazon is a million times better than you—Shame on you.",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-29T21:38:26"
+        }
+      ]
+    },
+    {
+      "theme_id": "5",
+      "theme_name": "Fresh Fruits & Vegetable Quality Checks",
+      "summary": "Users complain about receiving stale, damaged, or poor quality fresh produce when ordering organic vegetables and fruits.",
+      "confidence_score": 0.37,
+      "size": 23,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.1,
+      "opportunity_score": 0.002,
+      "motivations": [
+        "Healthy organic cooking ingredients",
+        "Convenience of avoiding local markets"
+      ],
+      "pain_points": [
+        "Spoiled or bruised vegetables",
+        "Inconsistent item sizes in pre-packed bags"
+      ],
+      "opportunities": [
+        "Add 'Handpicked Quality Checked' label verification",
+        "Create instant picture-upload refund option for damaged produce"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "delivery partner behaviour is good",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-29T20:48:13"
+        }
+      ]
+    },
+    {
+      "theme_id": "9",
+      "theme_name": "App Crashes & Catalog Rendering Lag",
+      "summary": "Users complain about app lag, search delays, and screen crashes during high-traffic sales and festival events.",
+      "confidence_score": 0.37,
+      "size": 22,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.51,
+      "opportunity_score": 0.008,
+      "motivations": [
+        "Fluid catalog exploration",
+        "Responsive search input responsiveness"
+      ],
+      "pain_points": [
+        "Slow UI list rendering",
+        "App freezing during payment initialization"
+      ],
+      "opportunities": [
+        "Implement light-weight UI database catalog caching",
+        "Optimize payment SDK init speed"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "please avaliable cash on delivery i faced many difficulties to order things ....otherwise app is very convenient....",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-29T20:46:21"
+        }
+      ]
+    },
+    {
+      "theme_id": "14",
+      "theme_name": "Packaging Material & Eco-friendly Bag Disposal",
+      "summary": "Users express concerns about excessive plastic usage and high delivery bag fees, requesting paper or cloth alternative pickups.",
+      "confidence_score": 0.4,
+      "size": 29,
+      "dominant_segment": "Uncategorized",
+      "pain_severity": 0.98,
+      "opportunity_score": 0.019,
+      "motivations": [
+        "Eco-friendly packaging sustainability",
+        "Minimize home waste clutter"
+      ],
+      "pain_points": [
+        "Accumulated packaging waste",
+        "Forced premium bag charges"
+      ],
+      "opportunities": [
+        "Introduce delivery bag return and recycling credit system",
+        "Use biodegradable wraps for produce packaging"
+      ],
+      "supporting_quotes": [
+        {
+          "text": "worst in delivery time and iteams given by hands with out hand bag never choose it in tumkuru",
+          "source_platform": "play_store",
+          "timestamp": "2026-07-29T20:37:59"
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "theme_id": "2",
+      "opportunity_score": 0.052,
+      "reach": 0.09,
+      "pain_severity": 0.6,
+      "dominant_segment": "price_sensitive",
+      "segment_breakdown": {
+        "price_sensitive": 0.5,
+        "Uncategorized": 0.46,
+        "mission_driven": 0.02,
+        "trust_conscious": 0.01,
+        "convenience_first": 0.01,
+        "habitual_buyer": 0.01
+      },
+      "centroid_review": {
+        "source_id": "c9bf56dc-8aa7-46a9-a289-887234b49efd",
+        "cleaned_text": "overprice selling item this app 🤬😡😡😡",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T18:59:24",
+        "author_anonymized": "PlayStoreUser_7eeed13f",
+        "metadata": {
+          "score": 1,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "12",
+      "opportunity_score": 0.048,
+      "reach": 0.05,
+      "pain_severity": 0.96,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "mission_driven": 0.08,
+        "Uncategorized": 0.48,
+        "trust_conscious": 0.24,
+        "price_sensitive": 0.07,
+        "convenience_first": 0.08,
+        "exploratory_shopper": 0.01,
+        "habitual_buyer": 0.04
+      },
+      "centroid_review": {
+        "source_id": "976d9474-d13d-4457-bddf-f8edab1ded0c",
+        "cleaned_text": "I m sharing my experience after using from months that blinkit is having pathetic customer care service because they send you rotten items dirty package first of all they will not return and the most they won't accept and not apologize for that so people's continue buying but order COD and checked everything on your doorstep and if it's not ok don't receive",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T18:11:11",
+        "author_anonymized": "PlayStoreUser_911a206c",
+        "metadata": {
+          "thumbs_up_count": 0,
+          "score": 2
+        }
+      }
+    },
+    {
+      "theme_id": "0",
+      "opportunity_score": 0.047,
+      "reach": 0.08,
+      "pain_severity": 0.57,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.71,
+        "trust_conscious": 0.1,
+        "price_sensitive": 0.09,
+        "convenience_first": 0.07,
+        "habitual_buyer": 0.01,
+        "mission_driven": 0.02
+      },
+      "centroid_review": {
+        "source_id": "910abb96-f6a0-4b63-ad35-fd796f276f85",
+        "cleaned_text": "delevery fast hai lekin add to Cart karne par paise bahut hi jayada badh jata hai",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T09:04:24",
+        "author_anonymized": "PlayStoreUser_34903473",
+        "metadata": {
+          "score": 4,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "16",
+      "opportunity_score": 0.029,
+      "reach": 0.03,
+      "pain_severity": 0.93,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "price_sensitive": 0.09,
+        "habitual_buyer": 0.02,
+        "Uncategorized": 0.51,
+        "mission_driven": 0.06,
+        "trust_conscious": 0.32
+      },
+      "centroid_review": {
+        "source_id": "ebca5ffa-c8a0-4af3-8fcb-dc325e94755e",
+        "cleaned_text": "return policy is horrible. I am fed up with this return and refund policies.",
+        "platform": "play_store",
+        "timestamp": "2026-07-27T17:37:08",
+        "author_anonymized": "PlayStoreUser_ed85416f",
+        "metadata": {
+          "score": 1,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "1",
+      "opportunity_score": 0.021,
+      "reach": 0.03,
+      "pain_severity": 0.75,
+      "dominant_segment": "convenience_first",
+      "segment_breakdown": {
+        "convenience_first": 0.46,
+        "Uncategorized": 0.44,
+        "habitual_buyer": 0.05,
+        "price_sensitive": 0.02,
+        "trust_conscious": 0.02
+      },
+      "centroid_review": {
+        "source_id": "9e35ba57-8775-46c8-8b63-65eda6639ab3",
+        "cleaned_text": "order delivery too late time",
+        "platform": "play_store",
+        "timestamp": "2026-07-26T15:53:22",
+        "author_anonymized": "PlayStoreUser_dea7864e",
+        "metadata": {
+          "score": 2,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "14",
+      "opportunity_score": 0.019,
+      "reach": 0.02,
+      "pain_severity": 0.98,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "convenience_first": 0.1,
+        "mission_driven": 0.03,
+        "Uncategorized": 0.66,
+        "price_sensitive": 0.07,
+        "exploratory_shopper": 0.03,
+        "trust_conscious": 0.1
+      },
+      "centroid_review": {
+        "source_id": "6506616e-f8f0-481a-9d7e-8a44bd69ad65",
+        "cleaned_text": "it's service is very bad 👎",
+        "platform": "play_store",
+        "timestamp": "2026-07-26T19:28:22",
+        "author_anonymized": "PlayStoreUser_0d124d40",
+        "metadata": {
+          "score": 1,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "15",
+      "opportunity_score": 0.016,
+      "reach": 0.02,
+      "pain_severity": 0.99,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.58,
+        "convenience_first": 0.08,
+        "price_sensitive": 0.08,
+        "trust_conscious": 0.08,
+        "mission_driven": 0.08,
+        "exploratory_shopper": 0.04,
+        "habitual_buyer": 0.04
+      },
+      "centroid_review": {
+        "source_id": "cef66f9a-cb3a-41e7-a1c8-bf75d4e16718",
+        "cleaned_text": "bad resolution to simple problems. hate customer experience with them",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T07:52:07",
+        "author_anonymized": "PlayStoreUser_e419598e",
+        "metadata": {
+          "score": 1,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "13",
+      "opportunity_score": 0.01,
+      "reach": 0.01,
+      "pain_severity": 0.79,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.67,
+        "convenience_first": 0.11,
+        "habitual_buyer": 0.17,
+        "trust_conscious": 0.06
+      },
+      "centroid_review": {
+        "source_id": "ccc868d7-8001-4bed-bbf4-9e12c9d841fc",
+        "cleaned_text": "brooo when i order milk they deliver it in the cardboard bag and it always torn apart as the milk is cold and have some water outside. please change ur bag while delivering milk and cold stuff",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T15:17:48",
+        "author_anonymized": "PlayStoreUser_e25493c6",
+        "metadata": {
+          "score": 5,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "3",
+      "opportunity_score": 0.01,
+      "reach": 0.1,
+      "pain_severity": 0.1,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.57,
+        "convenience_first": 0.31,
+        "mission_driven": 0.02,
+        "habitual_buyer": 0.04,
+        "price_sensitive": 0.03,
+        "trust_conscious": 0.02
+      },
+      "centroid_review": {
+        "source_id": "0ddab6a1-0e83-4c32-b389-546fd3bbd7fd",
+        "cleaned_text": "Truly at the blink of an eye. Very useful when not feeling like going out !! Easy to select, place the order and pay.",
+        "platform": "play_store",
+        "timestamp": "2026-07-26T21:19:58",
+        "author_anonymized": "PlayStoreUser_71d53c4c",
+        "metadata": {
+          "score": 5,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "6",
+      "opportunity_score": 0.01,
+      "reach": 0.1,
+      "pain_severity": 0.1,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.51,
+        "convenience_first": 0.44,
+        "trust_conscious": 0.05,
+        "exploratory_shopper": 0.01
+      },
+      "centroid_review": {
+        "source_id": "c7f88304-18ca-405e-9ef7-551637b7583f",
+        "cleaned_text": "easy and fast service 👌",
+        "platform": "play_store",
+        "timestamp": "2026-07-26T17:47:44",
+        "author_anonymized": "PlayStoreUser_7cd67dd8",
+        "metadata": {
+          "score": 5,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "4",
+      "opportunity_score": 0.009,
+      "reach": 0.09,
+      "pain_severity": 0.1,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.78,
+        "convenience_first": 0.14,
+        "mission_driven": 0.04,
+        "trust_conscious": 0.01,
+        "habitual_buyer": 0.01,
+        "price_sensitive": 0.02
+      },
+      "centroid_review": {
+        "source_id": "0a475095-9523-42ed-af01-367c55ae6042",
+        "cleaned_text": "thanks for make this app",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T10:10:39",
+        "author_anonymized": "PlayStoreUser_708e05fa",
+        "metadata": {
+          "thumbs_up_count": 0,
+          "score": 5
+        }
+      }
+    },
+    {
+      "theme_id": "10",
+      "opportunity_score": 0.009,
+      "reach": 0.01,
+      "pain_severity": 0.84,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "mission_driven": 0.06,
+        "Uncategorized": 0.44,
+        "trust_conscious": 0.25,
+        "price_sensitive": 0.12,
+        "convenience_first": 0.06,
+        "habitual_buyer": 0.06
+      },
+      "centroid_review": {
+        "source_id": "1e896b8b-9054-468a-abe5-e5f5b4c3124d",
+        "cleaned_text": "Just don't get hyped by the returning facility cause it's very bad a damaged product returned will only give a coupon.",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T17:01:53",
+        "author_anonymized": "PlayStoreUser_0f192728",
+        "metadata": {
+          "score": 1,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "9",
+      "opportunity_score": 0.008,
+      "reach": 0.01,
+      "pain_severity": 0.51,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "convenience_first": 0.05,
+        "Uncategorized": 0.82,
+        "habitual_buyer": 0.05,
+        "price_sensitive": 0.05,
+        "exploratory_shopper": 0.05
+      },
+      "centroid_review": {
+        "source_id": "59512410-ff46-473b-9156-98ce502866a9",
+        "cleaned_text": "why cash payment option is available only on orders above 100. Sometimes because of this extra things get added in cart. This rule should not be applied.",
+        "platform": "play_store",
+        "timestamp": "2026-07-26T18:08:31",
+        "author_anonymized": "PlayStoreUser_3736669b",
+        "metadata": {
+          "thumbs_up_count": 0,
+          "score": 1
+        }
+      }
+    },
+    {
+      "theme_id": "11",
+      "opportunity_score": 0.006,
+      "reach": 0.01,
+      "pain_severity": 0.47,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.67,
+        "mission_driven": 0.06,
+        "exploratory_shopper": 0.11,
+        "price_sensitive": 0.06,
+        "convenience_first": 0.11
+      },
+      "centroid_review": {
+        "source_id": "bf0dfe10-b152-46cf-a000-d8d992963ab0",
+        "cleaned_text": "nice 🙂 but not available all items",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T14:14:26",
+        "author_anonymized": "PlayStoreUser_bff6bc43",
+        "metadata": {
+          "score": 5,
+          "thumbs_up_count": 0
+        }
+      }
+    },
+    {
+      "theme_id": "8",
+      "opportunity_score": 0.005,
+      "reach": 0.05,
+      "pain_severity": 0.1,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "convenience_first": 0.38,
+        "Uncategorized": 0.5,
+        "mission_driven": 0.06,
+        "trust_conscious": 0.03,
+        "habitual_buyer": 0.03
+      },
+      "centroid_review": {
+        "source_id": "a72b216a-953d-486c-80da-89cafeadaf46",
+        "cleaned_text": "just a wonderful app all you need is delivered at your door step",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T10:34:47",
+        "author_anonymized": "PlayStoreUser_dfbfc5e2",
+        "metadata": {
+          "thumbs_up_count": 0,
+          "score": 5
+        }
+      }
+    },
+    {
+      "theme_id": "5",
+      "opportunity_score": 0.002,
+      "reach": 0.02,
+      "pain_severity": 0.1,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.61,
+        "convenience_first": 0.26,
+        "price_sensitive": 0.04,
+        "habitual_buyer": 0.04,
+        "mission_driven": 0.04
+      },
+      "centroid_review": {
+        "source_id": "fd47b57f-af80-46f8-97fd-f672524377a2",
+        "cleaned_text": "good service..and delivery boy behave very good 😊 😊🥳🥳",
+        "platform": "play_store",
+        "timestamp": "2026-07-29T13:13:45",
+        "author_anonymized": "PlayStoreUser_315cfc0d",
+        "metadata": {
+          "thumbs_up_count": 0,
+          "score": 5
+        }
+      }
+    },
+    {
+      "theme_id": "7",
+      "opportunity_score": 0.001,
+      "reach": 0.01,
+      "pain_severity": 0.1,
+      "dominant_segment": "Uncategorized",
+      "segment_breakdown": {
+        "Uncategorized": 0.82,
+        "mission_driven": 0.06,
+        "convenience_first": 0.06,
+        "price_sensitive": 0.06
+      },
+      "centroid_review": {
+        "source_id": "d38ca74b-b4ee-478f-a0c6-e8f4e46fcc29",
+        "cleaned_text": "Good app easy convinient Groceries",
+        "platform": "play_store",
+        "timestamp": "2026-07-27T21:39:29",
+        "author_anonymized": "PlayStoreUser_b86cbcb3",
+        "metadata": {
+          "score": 5,
+          "thumbs_up_count": 0
+        }
+      }
+    }
+  ],
+  "cohorts_breakdown": {
+    "Uncategorized": 0.6,
+    "convenience_first": 0.16,
+    "habitual_buyer": 0.03,
+    "trust_conscious": 0.08,
+    "price_sensitive": 0.08,
+    "mission_driven": 0.04,
+    "exploratory_shopper": 0.01
+  },
+  "genuine_metrics": {
+    "reorders_percentage": "80%",
+    "adoption_percentage": "6.8%",
+    "top_barrier": "Trust issue & Quality anxiety",
+    "top_barrier_subtext": "40.3% trust & friction reviews",
+    "reviews_count": "1,490"
+  }
+}

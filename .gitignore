@@ -1,0 +1,21 @@
+# Environment variables
+.env
+.env.local
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Databases
+data/chroma_db/
+data/test_chat_chroma_db/
+
+# OS specific files
+.DS_Store
+Thumbs.db
