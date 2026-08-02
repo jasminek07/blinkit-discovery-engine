@@ -70,12 +70,14 @@ class GroqClient:
 
     def _generate_mock_response(self, user_prompt: str) -> Dict[str, Any]:
         """Generates realistic mock responses matching the expected schema for test runs."""
-        # Try parsing user_prompt as JSON to extract the raw query text
+        # Try parsing user_prompt as JSON to extract the raw query text and context reviews
         query_text = user_prompt
+        context_reviews = []
         try:
             parsed = json.loads(user_prompt)
             if isinstance(parsed, dict):
                 query_text = parsed.get("user_query", parsed.get("question", user_prompt))
+                context_reviews = parsed.get("customer_feedback_context", [])
         except Exception:
             pass
             
@@ -106,39 +108,71 @@ class GroqClient:
             if "repeatedly buy" in query_lower or "same categories" in query_lower or "category inertia" in query_lower or "speed" in query_lower or "reorder" in query_lower:
                 reply = "Based on customer reviews, users repeatedly purchase from standard categories (like milk and daily staples) because of the reliability and extreme speed of Blinkit's delivery service (usually under 10 minutes). They have established habit loops where these daily essentials are needed immediately."
                 quote = "Blinkit delivery is incredibly fast, got my grocery package in just 8 minutes today!"
+                source = "play_store"
             elif "prevent" in query_lower or "explore new" in query_lower or "exploration barrier" in query_lower or "cosmetics" in query_lower:
                 reply = "Friction in exploring new categories primarily stems from low trust in product quality (e.g. leaking milk packets or damaged packaging) and transaction failures during checkouts. There is also decision anxiety due to a lack of visible customer reviews or social proof on newer non-grocery items like cosmetics or electronics."
                 quote = "I hesitate to order premium face creams or earphone accessories from Blinkit because there are no customer ratings or reviews. How do I know if they are genuine?"
+                source = "app_store"
             elif "discover" in query_lower or "find product" in query_lower or "timeout" in query_lower or "payment" in query_lower:
                 reply = "Product discovery is heavily search-driven rather than banner-driven. Users open the app with a specific mission (e.g. a search query) rather than organic browsing. Banners and recommendations have low trust, and users find them irrelevant."
                 quote = "They missed delivering two items from my order but charged me anyway. The bot chat refused my refund."
+                source = "play_store"
             elif "habit" in query_lower or "routine" in query_lower:
                 reply = "Shopping habits act as strong lock-in loops. Users have high repeat purchase patterns for daily morning essentials, which keeps them using the app as a utility. They do not view it as a department store, limiting cross-category discovery."
                 quote = "Unimaginable fast door step reasonable service ever thought of .Especially good for senior citizens."
+                source = "play_store"
             elif "reassurance" in query_lower or "trust" in query_lower:
                 reply = "Users require social proof such as rating stars, clear return policies, and reviews for non-grocery categories (like cosmetics or electronics) before they are comfortable purchasing them. They also value category-specific assurance, like certified doctor consultations for medicine delivery."
                 quote = "it provides doctor's consultation also for free. and suggest you better medicines according to your health issues."
+                source = "play_store"
             elif "frustration" in query_lower or "consistently across" in query_lower or "refund" in query_lower or "chatbot" in query_lower or "complain" in query_lower:
                 reply = "The most consistent frustrations across platforms are automated AI customer service chatbots failing to resolve order disputes, lack of order cancellation options once purchased, and delivery boys charging unauthorized handling fees."
                 quote = "Customer support is just a bot that repeats generic replies when my packet of curd is completely leaked."
+                source = "play_store"
             elif "segments" in query_lower or "exploratory" in query_lower:
                 reply = "Based on the cohort metrics, 'exploratory_shoppers' and 'price_sensitive' segments show higher propensity to explore non-staple categories (such as organic teas and healthcare consultations) when incentivized by clear discount options or product benefits."
                 quote = "I like to try organic tea and explore home decor options."
+                source = "reddit"
             elif "unmet" in query_lower or "needs" in query_lower:
                 reply = "Key unmet needs include post-purchase address modifications, a grace-period order cancellation button, and live human customer support options to handle order discrepancies or refund claims."
                 quote = "service is amazing. but change in address becomes quite difficult."
+                source = "play_store"
             elif "most ordered" in query_lower or "ordere" in query_lower or "which category" in query_lower or "most order" in query_lower:
                 reply = "According to customer reviews, the most ordered categories on Blinkit are daily essentials and staples, particularly milk, fresh bread, eggs, curd, and breakfast vegetables. These items dominate regular customer shopping carts due to their immediate daily utility."
                 quote = "Very good store for groceries daily needs milk bread vegetables."
+                source = "play_store"
             elif "address change" in query_lower or "change address" in query_lower or "wrong address" in query_lower:
                 reply = "Users report that changing the delivery address post-order is impossible. In addition, the GPS pin locator often saves incorrect addresses, causing packages to go to wrong locations with no option to modify."
                 quote = "service is amazing. but change in address becomes quite difficult."
+                source = "play_store"
             elif "exchange" in query_lower or "return" in query_lower or "refund" in query_lower:
                 reply = "The primary issues with exchange and returns are the total lack of an order cancellation window once checked out, delayed refunds for missing items, and automated AI chat support failing to process return claims."
                 quote = "refund check does not show up for missing item, very bad customer support"
+                source = "play_store"
             else:
-                reply = "I analyzed the customer reviews dataset. Most feedback centers around delivery speed, app stability, and order resolution disputes. Let me know if you want details on a specific issue!"
-                quote = "this app is very nice and also soo useful"
+                if context_reviews:
+                    reply = "I analyzed the customer reviews dataset matching your query. Here is a summary of the feedback:\n\n"
+                    supporting_quotes = []
+                    for i, r in enumerate(context_reviews[:3]):
+                        text_val = r.get("text", "")
+                        platform_val = r.get("platform", "play_store")
+                        timestamp_val = r.get("timestamp", "2026-07-29T10:00:00")
+                        reply += f"- **{platform_val.upper()} Review:** \"{text_val}\"\n"
+                        supporting_quotes.append({
+                            "text": text_val,
+                            "source_platform": platform_val,
+                            "timestamp": timestamp_val
+                        })
+                    return {
+                        "reply": reply,
+                        "answer": reply,
+                        "confidence": "High",
+                        "supporting_quotes": supporting_quotes
+                    }
+                else:
+                    reply = "I analyzed the customer reviews dataset. Most feedback centers around delivery speed, app stability, and order resolution disputes. Let me know if you want details on a specific issue!"
+                    quote = "this app is very nice and also soo useful"
+                    source = "play_store"
                 
             return {
                 "reply": reply,
@@ -147,7 +181,7 @@ class GroqClient:
                 "supporting_quotes": [
                     {
                         "text": quote,
-                        "source_platform": "play_store",
+                        "source_platform": source,
                         "timestamp": "2026-07-29T10:00:00"
                     }
                 ]
