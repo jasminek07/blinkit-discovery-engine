@@ -12,10 +12,34 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Conversational RAG system prompt
+CHAT_SYSTEM_PROMPT = """You are a conversational Product Discovery Assistant.
+Your goal is to answer the user's questions about user behavior, discovery issues, and platforms by leveraging the provided customer reviews.
+
+Return a JSON object with the following schema:
+{
+  "reply": "Your friendly, detailed, and structured conversational response to the user's query.",
+  "confidence": "High / Medium / Low",
+  "supporting_quotes": [
+    {
+      "text": "Verbatim customer quote from the context reviews supporting your answer",
+      "source_platform": "play_store/app_store/reddit",
+      "timestamp": "ISO-timestamp"
+    }
+  ]
+}
+
+CRITICAL RULES:
+1. Base your response strictly on the context reviews provided. Do not invent or assume anything.
+2. Every quote in 'supporting_quotes' MUST be copied exactly verbatim.
+3. If the context does not contain enough information to answer the question, politely explain that the current customer reviews do not mention this issue, set confidence to Low, and leave supporting_quotes empty.
+4. Guardrail: If the query is unrelated to Blinkit, category discovery, shopping habits, quick commerce, or customer feedback reviews, you MUST refuse to answer. Return exactly 'Answering this is beyond my capabilities right now' in the 'reply' field, set 'confidence' to 'Low', and set 'supporting_quotes' to an empty list.
+"""
+
 # High-Impact Yellow Ribbon on Top
 st.markdown(
     """
-    <div style="background-color: #F8CB46; height: 32px; width: 100%; position: fixed; top: 0; left: 0; z-index: 999999; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: #111827; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <div style="background-color: #F8CB46; height: 44px; width: 100%; position: fixed; top: 0; left: 0; z-index: 999999; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: #111827; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
         Blinkit RAG Discovery Engine
     </div>
     """,
@@ -32,7 +56,7 @@ st.markdown(
     }
     /* Shift app content down to account for top ribbon */
     .block-container {
-        padding-top: 48px !important;
+        padding-top: 60px !important;
     }
     .reportview-container { background-color: #F7F9FB; }
     .sidebar .sidebar-content { background-color: #FFFFFF; border-right: 1px solid #E5E7EB; }
@@ -324,7 +348,7 @@ elif nav_selection == "AI chatbot 🧠":
         
         # Local imports for isolated RAG routing (avoids loading hdbscan/umap/etc)
         from src.vector_db.chroma_client import ChromaVectorStore
-        from src.llm_agent.synthesizer import InsightSynthesizer, CHAT_SYSTEM_PROMPT
+        from src.llm_agent.synthesizer import InsightSynthesizer
         from src.llm_agent.validator import validate_and_ground_quotes
         
         with st.spinner("Retrieving facts & querying Groq Llama..."):
