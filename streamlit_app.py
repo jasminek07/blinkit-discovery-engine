@@ -247,30 +247,26 @@ elif nav_selection == "Behavioral Questions Matrix 💡":
             parts = v.split(" — ")
             text = parts[0]
             source = parts[1] if len(parts) > 1 else "Feedback"
-            verbatims_html += f"""
-            <div style="background-color: rgba(248, 203, 70, 0.05); border: 1px solid rgba(248, 203, 70, 0.1); padding: 16px; border-radius: 16px; font-size: 12px; font-style: italic; color: #111827; margin-bottom: 12px; line-height: 1.45;">
-                "{text}"
-                <span style="display: block; font-size: 10px; color: #6B7280; margin-top: 8px; font-weight: bold; font-style: normal;">— {source}</span>
-            </div>
-            """
+            verbatims_html += f'<div style="background-color: rgba(248, 203, 70, 0.05); border: 1px solid rgba(248, 203, 70, 0.1); padding: 16px; border-radius: 16px; font-size: 12px; font-style: italic; color: #111827; margin-bottom: 12px; line-height: 1.45;">' \
+                              f'"{text}"' \
+                              f'<span style="display: block; font-size: 10px; color: #6B7280; margin-top: 8px; font-weight: bold; font-style: normal;">— {source}</span>' \
+                              f'</div>'
             
-        card_html = f"""
-        <div style="background-color: white; padding: 32px; border-radius: 24px; border: 1px solid rgba(248, 203, 70, 0.2); box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 24px; min-height: 480px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">
-                    <h4 style="margin: 0; font-size: 18px; font-weight: 800; color: #111827; padding-right: 16px; line-height: 1.4;">{num}. {q}</h4>
-                    <span style="background-color: #F8CB46; color: #111827; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 8px; white-space: nowrap;">{tag}</span>
-                </div>
-                <div style="border-left: 4px solid #F8CB46; background-color: rgba(248, 203, 70, 0.05); padding: 10px 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px; font-size: 13px; font-weight: 600; color: rgba(17, 24, 39, 0.8); line-height: 1.6; margin-bottom: 24px;">
-                    <strong>One-liner Answer:</strong> {answer}
-                </div>
-            </div>
-            <div>
-                <p style="font-size: 12px; font-weight: bold; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Verbatim Citations:</p>
-                {verbatims_html}
-            </div>
-        </div>
-        """
+        card_html = f'<div style="background-color: white; padding: 32px; border-radius: 24px; border: 1px solid rgba(248, 203, 70, 0.2); box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 24px; min-height: 480px; display: flex; flex-direction: column; justify-content: space-between;">' \
+                    f'<div>' \
+                    f'<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">' \
+                    f'<h4 style="margin: 0; font-size: 18px; font-weight: 800; color: #111827; padding-right: 16px; line-height: 1.4;">{num}. {q}</h4>' \
+                    f'<span style="background-color: #F8CB46; color: #111827; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 8px; white-space: nowrap;">{tag}</span>' \
+                    f'</div>' \
+                    f'<div style="border-left: 4px solid #F8CB46; background-color: rgba(248, 203, 70, 0.05); padding: 10px 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px; font-size: 13px; font-weight: 600; color: rgba(17, 24, 39, 0.8); line-height: 1.6; margin-bottom: 24px;">' \
+                    f'<strong>One-liner Answer:</strong> {answer}' \
+                    f'</div>' \
+                    f'</div>' \
+                    f'<div>' \
+                    f'<p style="font-size: 12px; font-weight: bold; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Verbatim Citations:</p>' \
+                    f'{verbatims_html}' \
+                    f'</div>' \
+                    f'</div>'
         st.markdown(card_html, unsafe_allow_html=True)
         
     for i, q_data in enumerate(questions_data):
