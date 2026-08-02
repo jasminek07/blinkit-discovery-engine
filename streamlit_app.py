@@ -357,7 +357,7 @@ elif nav_selection == "AI chatbot 🧠":
         from src.llm_agent.synthesizer import InsightSynthesizer
         from src.llm_agent.validator import validate_and_ground_quotes
         
-        with st.spinner("Retrieving facts & querying Groq Llama..."):
+        with st.spinner("Retrieving facts & querying Gemini..."):
             try:
                 # Intercept greetings
                 clean_msg = query.strip().lower().rstrip("?./! ")
@@ -406,7 +406,7 @@ elif nav_selection == "AI chatbot 🧠":
                     }
                     
                     synthesizer = InsightSynthesizer()
-                    raw_response = synthesizer.groq_client.complete_json(CHAT_SYSTEM_PROMPT, json.dumps(user_prompt))
+                    raw_response = synthesizer.gemini_client.complete_json(CHAT_SYSTEM_PROMPT, json.dumps(user_prompt))
                     grounded_response = validate_and_ground_quotes(raw_response, original_reviews)
                     
                     reply = grounded_response.get("reply", "No response generated.")

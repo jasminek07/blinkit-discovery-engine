@@ -2,14 +2,14 @@ import os
 import time
 import json
 import warnings
-from typing import Dict, Any, Type
-from pydantic import BaseModel
-from groq import Groq
+from typing import Dict, Any
+from google import genai
+from google.genai import types
 from src.config import settings
 
 class RateLimiter:
-    """Ensures requests stay strictly below the 30 RPM limit (min 2.0s between calls)."""
-    def __init__(self, requests_per_minute: int = 28): # Target slightly below 30 to be safe
+    """Ensures requests stay strictly below the 15 RPM limit (min 5.0s between calls) for Gemini free tier."""
+    def __init__(self, requests_per_minute: int = 12): # Target slightly below 15 to be safe
         self.delay = 60.0 / requests_per_minute
         self.last_call = 0.0
 
@@ -21,51 +21,51 @@ class RateLimiter:
             time.sleep(sleep_time)
         self.last_call = time.time()
 
-# Global rate limiter instance
-groq_rate_limiter = RateLimiter()
+# Global rate limiter instance for Gemini
+gemini_rate_limiter = RateLimiter()
 
-class GroqClient:
-    """Wrapper around the Groq API client with built-in rate-limiting and mock fallbacks."""
+class GeminiClient:
+    """Wrapper around the Google Gemini API client with built-in rate-limiting and mock fallbacks."""
     def __init__(self):
-        self.api_key = settings.groq_api_key
-        self.model_name = settings.groq_model_name
-        self.is_dummy = (self.api_key == "dummy_groq_api_key" or not self.api_key)
+        self.api_key = settings.gemini_api_key
+        self.model_name = settings.gemini_model_name
+        self.is_dummy = (self.api_key == "dummy_gemini_api_key" or not self.api_key)
         
         if not self.is_dummy:
             try:
-                self.client = Groq(api_key=self.api_key)
+                self.client = genai.Client(api_key=self.api_key)
             except Exception as e:
-                warnings.warn(f"Failed to initialize Groq client: {e}. Operating in Mock Mode.")
+                warnings.warn(f"Failed to initialize Gemini client: {e}. Operating in Mock Mode.")
                 self.is_dummy = True
         else:
-            print("Groq API key is dummy or missing. Initializing in Mock Mode for local verification.")
+            print("Gemini API key is dummy or missing. Initializing in Mock Mode for local verification.")
 
     def complete_json(self, system_prompt: str, user_prompt: str) -> Dict[str, Any]:
         """
-        Sends requests to Groq with rate-limiting and JSON response formatting.
+        Sends requests to Gemini with rate-limiting and JSON response formatting.
         If in dummy mode, returns a mock structure to prevent pipeline crashes.
         """
         if self.is_dummy:
             return self._generate_mock_response(user_prompt)
             
         # Apply rate limiting
-        groq_rate_limiter.wait()
+        gemini_rate_limiter.wait()
         
         try:
-            chat_completion = self.client.chat.completions.create(
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
+            response = self.client.models.generate_content(
                 model=self.model_name,
-                response_format={"type": "json_object"},
-                temperature=0.2,
-                max_tokens=1000
+                contents=user_prompt,
+                config=types.GenerateContentConfig(
+                    system_instruction=system_prompt,
+                    response_mime_type="application/json",
+                    temperature=0.2,
+                    max_output_tokens=1000
+                )
             )
-            response_content = chat_completion.choices[0].message.content
+            response_content = response.text
             return json.loads(response_content)
         except Exception as e:
-            print(f"Groq completions call failed: {e}. Falling back to mock generator.")
+            print(f"Gemini completions call failed: {e}. Falling back to mock generator.")
             return self._generate_mock_response(user_prompt)
 
     def _generate_mock_response(self, user_prompt: str) -> Dict[str, Any]:

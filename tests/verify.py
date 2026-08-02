@@ -12,8 +12,8 @@ def test_settings_loaded():
     """Verify that settings are parsed correctly from environment."""
     assert settings.reddit_client_id is not None
     assert settings.reddit_client_secret is not None
-    assert settings.groq_api_key is not None
-    assert settings.groq_model_name == "llama-3.3-70b-versatile"
+    assert settings.gemini_api_key is not None
+    assert settings.gemini_model_name == "gemini-2.5-flash"
     assert settings.api_port == 8000
     assert settings.env == "development"
     print("✅ Settings Loaded Test Passed")

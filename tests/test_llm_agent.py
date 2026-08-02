@@ -7,7 +7,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.llm_agent.groq_client import RateLimiter, GroqClient
+from src.llm_agent.gemini_client import RateLimiter, GeminiClient
 from src.llm_agent.validator import (
     find_best_verbatim_match,
     validate_and_ground_quotes,

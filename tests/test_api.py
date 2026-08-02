@@ -11,8 +11,11 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 # Force mock environment settings
-os.environ["GROQ_API_KEY"] = "dummy_groq_api_key"
-os.environ["CHROMA_DB_PATH"] = "./data/test_api_chroma_db"
+os.environ["GEMINI_API_KEY"] = "dummy_gemini_api_key"
+os.environ["CHROMA_DB_PATH"] = "./data/test_chroma_db"
+
+from src.config import settings
+settings.chroma_db_path = "./data/test_chroma_db"
 
 from src.api.main import app, REPORT_CACHE_PATH
 
@@ -128,6 +131,13 @@ def test_api_endpoints():
     
     normalized_path = PROJECT_ROOT / "data" / "normalized_reviews.json"
     normalized_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Save original content of normalized reviews if exists, to restore it later
+    original_normalized_content = None
+    if normalized_path.exists():
+        with open(normalized_path, "r", encoding="utf-8") as f:
+            original_normalized_content = f.read()
+            
     with open(normalized_path, "w", encoding="utf-8") as f:
         json.dump(test_reviews, f, indent=2)
         
@@ -184,11 +194,14 @@ def test_api_endpoints():
     # Clean up test files
     if REPORT_CACHE_PATH.exists():
         REPORT_CACHE_PATH.unlink()
-    if normalized_path.exists():
+        
+    # Restore original normalized reviews if saved, otherwise delete the file
+    if original_normalized_content is not None:
+        with open(normalized_path, "w", encoding="utf-8") as f:
+            f.write(original_normalized_content)
+    elif normalized_path.exists():
         normalized_path.unlink()
     
-    # Cleanup test chroma db
-    import shutil
-    test_db = Path("./data/test_api_chroma_db")
-    if test_db.exists():
-        shutil.rmtree(test_db)
+    # Do not delete the database directory here to avoid lock/readonly issues with active handles.
+    # It will be cleaned up at the start of the next run.
+    pass

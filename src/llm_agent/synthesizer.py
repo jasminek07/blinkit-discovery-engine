@@ -1,6 +1,6 @@
 import json
 from typing import List, Dict, Any
-from src.llm_agent.groq_client import GroqClient
+from src.llm_agent.gemini_client import GeminiClient
 
 SYSTEM_PROMPT = """You are a Principal Product Discovery Expert and UX Researcher.
 Your job is to analyze a cluster of customer reviews and synthesize a single, coherent user behavioral theme.
@@ -51,7 +51,7 @@ def prepare_cluster_prompt(cluster_id: str, reviews: List[Dict[str, Any]]) -> st
 class InsightSynthesizer:
     """Orchestrates structured LLM summarization of clustering outputs."""
     def __init__(self):
-        self.groq_client = GroqClient()
+        self.gemini_client = GeminiClient()
 
     def synthesize_theme_insight(self, cluster_id: str, reviews: List[Dict[str, Any]]) -> Dict[str, Any]:
         """Runs LLM summarization for a feedback cluster, ensuring token budget is maintained."""
@@ -60,6 +60,6 @@ class InsightSynthesizer:
             
         user_prompt = prepare_cluster_prompt(cluster_id, reviews)
         
-        # Complete JSON completion via Groq
-        raw_json_insight = self.groq_client.complete_json(SYSTEM_PROMPT, user_prompt)
+        # Complete JSON completion via Gemini
+        raw_json_insight = self.gemini_client.complete_json(SYSTEM_PROMPT, user_prompt)
         return raw_json_insight

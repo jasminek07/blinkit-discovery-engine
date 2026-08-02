@@ -13,6 +13,9 @@ if str(PROJECT_ROOT) not in sys.path:
 TEST_DB_PATH = PROJECT_ROOT / "data" / "test_chroma_db"
 os.environ["CHROMA_DB_PATH"] = str(TEST_DB_PATH)
 
+from src.config import settings
+settings.chroma_db_path = str(TEST_DB_PATH)
+
 from src.vector_db.chroma_client import ChromaVectorStore, flatten_metadata
 
 def test_flatten_metadata():
@@ -35,9 +38,8 @@ def test_flatten_metadata():
     assert flat["meta_redundant_key"] == "some_value"
 
 def test_vector_store_ingestion_and_query():
-    # Clean up test DB path if exists
-    if TEST_DB_PATH.exists():
-        shutil.rmtree(TEST_DB_PATH)
+    # Ensure database collection is empty at start of test
+    pass
         
     store = ChromaVectorStore(collection_name="test_reviews_collection")
     store.reset_database()
@@ -100,6 +102,6 @@ def test_vector_store_ingestion_and_query():
     assert len(query_results_quality) == 1
     assert query_results_quality[0]["source_id"] == "test_3"
     
-    # Clean up test DB path after test completes
-    if TEST_DB_PATH.exists():
-        shutil.rmtree(TEST_DB_PATH)
+    # Do not delete the database directory here to avoid lock/readonly issues with active handles.
+    # It will be cleaned up at the start of the next run.
+    pass

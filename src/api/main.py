@@ -91,7 +91,7 @@ def compile_discovery_report() -> Dict[str, Any]:
     opportunity_list = scorer.compute_opportunity_matrix(clusters, total_records=len(retrieved_reviews))
     opportunities_by_id = {item["theme_id"]: item for item in opportunity_list}
     
-    # 5. Extract Theme Details using Groq LLM
+    # 5. Extract Theme Details using Gemini LLM
     themes_payload = []
     global_segment_counts = {}
     
@@ -300,7 +300,7 @@ CRITICAL RULES:
 def search_query(q: str):
     """
     Semantically searches the vector DB for reviews relevant to query q,
-    and runs Groq LLM to synthesize a validated answer.
+    and runs Gemini LLM to synthesize a validated answer.
     """
     if not q or not q.strip():
         raise HTTPException(status_code=400, detail="Query string 'q' is required.")
@@ -336,9 +336,9 @@ def search_query(q: str):
         "customer_feedback_context": context_reviews
     }
     
-    # Call Groq LLM
+    # Call Gemini LLM
     synthesizer = InsightSynthesizer()
-    raw_answer = synthesizer.groq_client.complete_json(SEARCH_SYSTEM_PROMPT, json.dumps(user_prompt))
+    raw_answer = synthesizer.gemini_client.complete_json(SEARCH_SYSTEM_PROMPT, json.dumps(user_prompt))
     
     # Ground quotes verbatim
     grounded_answer = validate_and_ground_quotes(raw_answer, original_reviews)
@@ -424,7 +424,7 @@ def chat_endpoint(request: ChatRequest):
     }
     
     synthesizer = InsightSynthesizer()
-    raw_response = synthesizer.groq_client.complete_json(CHAT_SYSTEM_PROMPT, json.dumps(user_prompt))
+    raw_response = synthesizer.gemini_client.complete_json(CHAT_SYSTEM_PROMPT, json.dumps(user_prompt))
     
     # Ground quotes verbatim
     grounded_response = validate_and_ground_quotes(raw_response, original_reviews)

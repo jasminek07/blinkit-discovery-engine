@@ -19,9 +19,9 @@ class Settings:
         self.reddit_client_secret: str = os.getenv("REDDIT_CLIENT_SECRET", "dummy_reddit_client_secret")
         self.reddit_user_agent: str = os.getenv("REDDIT_USER_AGENT", "BlinkitDiscoveryEngine/1.0")
 
-        # Groq API / LLM Configuration
-        self.groq_api_key: str = os.getenv("GROQ_API_KEY", "dummy_groq_api_key")
-        self.groq_model_name: str = os.getenv("GROQ_MODEL_NAME", "llama-3.3-70b-versatile")
+        # Google AI Studio / Gemini Configuration
+        self.gemini_api_key: str = os.getenv("GEMINI_API_KEY", "dummy_gemini_api_key")
+        self.gemini_model_name: str = os.getenv("GEMINI_MODEL_NAME", "gemini-2.5-flash")
 
         # Database settings
         self.chroma_db_path: str = os.getenv("CHROMA_DB_PATH", "./data/chroma_db")

@@ -10,8 +10,11 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 # Force mock environment settings
-os.environ["GROQ_API_KEY"] = "dummy_groq_api_key"
-os.environ["CHROMA_DB_PATH"] = "./data/test_chat_chroma_db"
+os.environ["GEMINI_API_KEY"] = "dummy_gemini_api_key"
+os.environ["CHROMA_DB_PATH"] = "./data/test_chroma_db"
+
+from src.config import settings
+settings.chroma_db_path = "./data/test_chroma_db"
 
 from src.api.main import app
 from src.vector_db.chroma_client import ChromaVectorStore
@@ -22,6 +25,7 @@ def test_chat_endpoints():
     print("Initializing test database collection...")
     # Initialize chroma store and add mock reviews for similarity retrieval
     store = ChromaVectorStore(collection_name="blinkit_live_reviews")
+    store.reset_database()
     
     test_reviews = [
         {
@@ -104,13 +108,9 @@ def test_chat_endpoints():
         assert len(data_q["supporting_quotes"]) > 0
     print("Specific related questions checks passed.")
 
-    # Clean up test Chroma DB
-    print("Cleaning up test database indices...")
-    import shutil
-    test_db = Path("./data/test_chat_chroma_db")
-    if test_db.exists():
-        shutil.rmtree(test_db)
-    print("Cleanup completed.")
+    # Do not delete the database directory here to avoid lock/readonly issues with active handles.
+    # It will be cleaned up at the start of the next run.
+    pass
 
 if __name__ == "__main__":
     test_chat_endpoints()
