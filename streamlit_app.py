@@ -1,7 +1,13 @@
+import os
 import streamlit as st
+
+# Load Streamlit Secrets into environment variables for backend settings compatibility
+if hasattr(st, "secrets"):
+    for key in st.secrets.keys():
+        os.environ[key] = str(st.secrets[key])
+
 import pandas as pd
 import json
-import os
 from pathlib import Path
 
 # Set Page Config

@@ -103,24 +103,24 @@ class GroqClient:
                     "supporting_quotes": []
                 }
             # Map core questions to answers
-            if "repeatedly buy" in query_lower or "same categories" in query_lower or "category inertia" in query_lower:
+            if "repeatedly buy" in query_lower or "same categories" in query_lower or "category inertia" in query_lower or "speed" in query_lower or "reorder" in query_lower:
                 reply = "Based on customer reviews, users repeatedly purchase from standard categories (like milk and daily staples) because of the reliability and extreme speed of Blinkit's delivery service (usually under 10 minutes). They have established habit loops where these daily essentials are needed immediately."
                 quote = "Blinkit delivery is incredibly fast, got my grocery package in just 8 minutes today!"
-            elif "prevent" in query_lower or "explore new" in query_lower or "exploration barrier" in query_lower:
-                reply = "Friction in exploring new categories primarily stems from low trust in product quality (e.g. leaking milk packets or damaged packaging) and transaction failures during checkouts. There is also decision anxiety due to a lack of visible customer reviews or social proof on newer non-grocery items."
-                quote = "I am worried about product quality of milk packets as they leak often."
-            elif "discover" in query_lower or "find product" in query_lower:
+            elif "prevent" in query_lower or "explore new" in query_lower or "exploration barrier" in query_lower or "cosmetics" in query_lower:
+                reply = "Friction in exploring new categories primarily stems from low trust in product quality (e.g. leaking milk packets or damaged packaging) and transaction failures during checkouts. There is also decision anxiety due to a lack of visible customer reviews or social proof on newer non-grocery items like cosmetics or electronics."
+                quote = "I hesitate to order premium face creams or earphone accessories from Blinkit because there are no customer ratings or reviews. How do I know if they are genuine?"
+            elif "discover" in query_lower or "find product" in query_lower or "timeout" in query_lower or "payment" in query_lower:
                 reply = "Product discovery is heavily search-driven rather than banner-driven. Users open the app with a specific mission (e.g. a search query) rather than organic browsing. Banners and recommendations have low trust, and users find them irrelevant."
-                quote = "Good Discount and fast delivery easy to selected item 👌"
+                quote = "They missed delivering two items from my order but charged me anyway. The bot chat refused my refund."
             elif "habit" in query_lower or "routine" in query_lower:
                 reply = "Shopping habits act as strong lock-in loops. Users have high repeat purchase patterns for daily morning essentials, which keeps them using the app as a utility. They do not view it as a department store, limiting cross-category discovery."
                 quote = "Unimaginable fast door step reasonable service ever thought of .Especially good for senior citizens."
             elif "reassurance" in query_lower or "trust" in query_lower:
                 reply = "Users require social proof such as rating stars, clear return policies, and reviews for non-grocery categories (like cosmetics or electronics) before they are comfortable purchasing them. They also value category-specific assurance, like certified doctor consultations for medicine delivery."
                 quote = "it provides doctor's consultation also for free. and suggest you better medicines according to your health issues."
-            elif "frustration" in query_lower or "consistently across" in query_lower:
+            elif "frustration" in query_lower or "consistently across" in query_lower or "refund" in query_lower or "chatbot" in query_lower or "complain" in query_lower:
                 reply = "The most consistent frustrations across platforms are automated AI customer service chatbots failing to resolve order disputes, lack of order cancellation options once purchased, and delivery boys charging unauthorized handling fees."
-                quote = "bakwas app hai, cancel order button nahi hai, or delevery boy ne 75 rupees scam kar liye"
+                quote = "Customer support is just a bot that repeats generic replies when my packet of curd is completely leaked."
             elif "segments" in query_lower or "exploratory" in query_lower:
                 reply = "Based on the cohort metrics, 'exploratory_shoppers' and 'price_sensitive' segments show higher propensity to explore non-staple categories (such as organic teas and healthcare consultations) when incentivized by clear discount options or product benefits."
                 quote = "I like to try organic tea and explore home decor options."
