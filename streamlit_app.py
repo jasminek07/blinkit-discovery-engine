@@ -66,7 +66,7 @@ st.markdown(
     }
     .reportview-container { background-color: #F7F9FB; }
     .sidebar .sidebar-content { background-color: #FFFFFF; border-right: 1px solid #E5E7EB; }
-    div[data-testid="stMetricValue"] { color: #111827; font-weight: 800; }
+    div[data-testid="stMetricValue"] { font-weight: 800; }
     .stButton>button { background-color: #FFFBEB !important; color: #111827 !important; border: 1px solid rgba(248, 203, 70, 0.4) !important; font-weight: bold; border-radius: 20px; }
     .stButton>button:hover { background-color: #F8CB46 !important; border-color: #F8CB46 !important; }
     </style>
