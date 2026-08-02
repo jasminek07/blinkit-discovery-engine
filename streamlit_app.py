@@ -15,8 +15,9 @@ st.set_page_config(
 # High-Impact Yellow Ribbon on Top
 st.markdown(
     """
-    <div style="background-color: #F8CB46; height: 10px; width: 100%; position: fixed; top: 0; left: 0; z-index: 9999;"></div>
-    <div style="margin-top: 15px;"></div>
+    <div style="background-color: #F8CB46; height: 32px; width: 100%; position: fixed; top: 0; left: 0; z-index: 999999; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: #111827; letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        Blinkit RAG Discovery Engine
+    </div>
     """,
     unsafe_allow_html=True
 )
@@ -25,6 +26,14 @@ st.markdown(
 st.markdown(
     """
     <style>
+    /* Hide native Streamlit header */
+    header[data-testid="stHeader"] {
+        display: none !important;
+    }
+    /* Shift app content down to account for top ribbon */
+    .block-container {
+        padding-top: 48px !important;
+    }
     .reportview-container { background-color: #F7F9FB; }
     .sidebar .sidebar-content { background-color: #FFFFFF; border-right: 1px solid #E5E7EB; }
     div[data-testid="stMetricValue"] { color: #111827; font-weight: 800; }
