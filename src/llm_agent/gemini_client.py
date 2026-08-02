@@ -151,18 +151,32 @@ class GeminiClient:
                 source = "play_store"
             else:
                 if context_reviews:
-                    reply = "I analyzed the customer reviews dataset matching your query. Here is a summary of the feedback:\n\n"
+                    # Synthesize a dynamic summary based on the retrieved reviews
+                    quotes_text = [r.get("text", "").strip() for r in context_reviews if r.get("text")]
+                    
+                    if quotes_text:
+                        # Construct a coherent reply summarizing these reviews
+                        clean_quotes = []
+                        for q_txt in quotes_text[:3]:
+                            c_txt = q_txt.rstrip(".!?,; ")
+                            clean_quotes.append(c_txt)
+                        
+                        reply = f"Based on the customer reviews, users mentioned that {clean_quotes[0]}."
+                        if len(clean_quotes) > 1:
+                            reply += f" In addition, some highlighted that {clean_quotes[1].lower() if clean_quotes[1] and not clean_quotes[1].startswith('I ') else clean_quotes[1]}."
+                        if len(clean_quotes) > 2:
+                            reply += f" Furthermore, feedback indicated that {clean_quotes[2].lower() if clean_quotes[2] and not clean_quotes[2].startswith('I ') else clean_quotes[2]}."
+                    else:
+                        reply = "I analyzed the customer reviews matching your query, but the reviews did not contain sufficient details to form a specific response."
+                        
                     supporting_quotes = []
-                    for i, r in enumerate(context_reviews[:3]):
-                        text_val = r.get("text", "")
-                        platform_val = r.get("platform", "play_store")
-                        timestamp_val = r.get("timestamp", "2026-07-29T10:00:00")
-                        reply += f"- **{platform_val.upper()} Review:** \"{text_val}\"\n"
-                        supporting_quotes.append({
-                            "text": text_val,
-                            "source_platform": platform_val,
-                            "timestamp": timestamp_val
-                        })
+                    for r in context_reviews[:3]:
+                        if r.get("text"):
+                            supporting_quotes.append({
+                                "text": r.get("text"),
+                                "source_platform": r.get("platform", "play_store"),
+                                "timestamp": r.get("timestamp", "")
+                            })
                     return {
                         "reply": reply,
                         "answer": reply,
